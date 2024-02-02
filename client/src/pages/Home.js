@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout/Layout'
 import axios from 'axios';
 import {Checkbox, Radio, Space} from 'antd'
@@ -14,7 +15,7 @@ const HomePage = () => {
   const [total,setTotal] = useState(0)
   const [page,setPage] = useState(1)
   const [loading,setLoading] = useState(false)
-
+  const navigate=useNavigate()
 
   const getAllProducts = async () => {
     try {
@@ -155,7 +156,7 @@ const HomePage = () => {
                       <h5 className="card-title">{p.name}</h5>
                       <p className="card-text">{p.description.substring(0,30)}...</p>
                       <p className="card-text"> ₹ {p.price}</p>
-                      {/* <a href="#" class="btn btn-primary ms-1">More detail</a> */}
+                      <button onClick={()=>navigate(`/product/${p.slug}`)} class="btn btn-primary ms-1">More detail</button>
                       {/* <a class="btn btn-secondary ms-1">Add to cart</a> */}
                   </div>
               </div>

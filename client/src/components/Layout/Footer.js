@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "../../styles/headers.css"
-import logo from './Dhawal-logos_transparent.png'
 
 const Footer = () => {
   return (
